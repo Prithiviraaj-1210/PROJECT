@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 30%; /* Adjust the width as needed */
+  padding: 20px;
+  border-radius: 10px;
+}
+body{
+  background-color: black;
+}
+
+
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Form styles */
+.container {
+  padding: 16px;
+}
+
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .modal-content {
+    width: 80%;
+  }
+}
+</style>
+</head>
+<body>
+
+
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="#" method="post" onsubmit="handleLogin(event)">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+     <center> <img src="logo.jpeg" alt="Avatar" class="avatar" style="border-radius: 70%;"></center>
+    </div>
+
+    <div class="container">
+      <table>
+        <tr>
+          <td><label><b>Username</b></label></td>
+          <td><input type="email" placeholder="Enter Username" name="uname" required></td>
+        </tr>
+        <tr>
+          <td><label><b>Password</b></label></td>
+          <td><input type="password" placeholder="Enter Password" name="psw" required></td>
+        </tr>
+      </table>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <span class="psw">Don't have an account? <a href="register.html">sign up</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+const validUsers = [
+  { username: 'prithiviraaj1210@gmail.com', password: 'prithiviraaj2004' },
+  { username: 'prith@gmail.com', password: 'password' },
+  { username: 'user3@example.com', password: 'password3' }
+];
+
+// Function to handle form submission
+function handleLogin(event) {
+  event.preventDefault(); // Prevent default form submission
+  
+  // Get entered username and password from the form
+  const enteredUsername = document.querySelector('input[name="uname"]').value;
+  const enteredPassword = document.querySelector('input[name="psw"]').value;
+  
+  // Check if entered username and password match any user in the array
+  const isValidUser = validUsers.some(user => 
+    user.username === enteredUsername && user.password === enteredPassword
+  );
+  
+  if (isValidUser) {
+    // Navigate to another HTML page (Replace with your desired page)
+    window.location.replace('customburger.html'); // Replace with your desired HTML file
+  } else {
+    // Display an alert if credentials are invalid
+    alert('Invalid username or password!');
+  }
+}
+
+// Get the modal
+
+</script>
+
+</body>
+</html>

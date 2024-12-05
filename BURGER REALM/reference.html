@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Burger Customisation</title>
+    <link rel="icon" href="burger icon.jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="script" href="javafile.js">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+
+<body>
+    <section id="home">
+  <header>
+    <h1><span style="font-family: 'Brush Script MT', cursive;color: rgb(253, 4, 4);font-size: 70px;">Burger Realm </span></h1>
+
+    <img src="logo.jpeg" alt="Avatar" style="border-radius: 50%;height: 100px;width: 100px;">
+    <input type="checkbox" name="" class="btn" />
+    <div class="nav">
+      <ol>
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#customise">CUSTOMIZE</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#checkout">pay now</a></li>
+        <button class="cart-button">
+          &#128722;
+        </button>
+      </ol>
+    </div>
+  </header>
+
+  <br><br>
+
+  <center>
+    <h1><span style="font-family: 'Brush Script MT', cursive;color: red;font-size:200%;">Burger Realm</span></h1>
+    <img src="logo2.jpeg" style="width:30%; height:45%; border: 5px solid; border-radius: 100%;">
+  </center>
+
+  <center>
+    <br>
+    <hr><hr>
+    <br>
+    <h1> Welcome to <span style="font-family: 'Brush Script MT', cursive;color: red;font-size: larger;">Burger Realm</span></h1>
+    <br><hr><hr>
+    <div style="background-image: url('background.jpeg'); background-repeat: repeat-x; height: 300px;">
+    </div>
+
+    <div style="padding: 5%;">
+      <hr><hr>
+      <h2>CUSTOMISE YOUR OWN BURGER</h2>
+      <hr><hr>
+      <h3><span style="font-family: 'Brush Script MT', cursive;color: red;font-size: larger;">Burger Realm</span> is a delightful culinary journey that allows you to create a meal that perfectly suits your taste buds. With a variety of ingredients at your disposal, you can craft a burger that is uniquely yours. Start with a fresh, fluffy bun as your canvas. Choose from a selection of patties - be it a classic beef patty, a succulent chicken breast, or a plant-based option for the vegetarians out there. Layer it with crisp lettuce, juicy tomatoes, and crunchy onions for a fresh crunch. Add a slice of cheese that melts into a delicious blanket over your patty. Don't forget the sauces - mayonnaise, ketchup, mustard, or barbecue, each adds a distinct flavor profile. For the adventurous, options like pickles, jalapenos, or even a fried egg can elevate your burger to the next level. Remember, the power to create the perfect burger is in your hands. Enjoy the process and most importantly, savor the result! 🍔</h3>
+    </div>
+
+    <section id="customise">
+      <hr><hr><h1 style="color: red;font-size:xx-large;">CUSTOMISE YOUR BURGERS</h1><hr><hr>
+      <br><br>
+
+      <div style="background-image: url('background.jpeg'); background-repeat: repeat-x; height: 300px;">
+        <!-- Content of the div -->
+      </div>
+      <hr>
+      <h3>LIST OF INGREDIENTS</h3>
+    </section>
+
+    <p><span  style="color:red; font-size: xx-large">Click the image to add item</p>
+    <hr>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col">
+        <div class="card" style="width: 18rem;" onclick="addFunction('Bun top', 20)">
+          <img src="buntop.jpg" class="card-img-top" alt="Bun top">
+          <div class="card-body">
+            <h5 class="card-title">BUN</h5>
+            <p class="card-text">Buns to hold your burger together.</p>
+            <p class="card-text"><strong>Price: ₹20</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;" onclick="addFunction('Patty fried', 120)">
+          <img src="pattyfried.jpeg" class="card-img-top" alt="Patty fried">
+          <div class="card-body">
+            <h5 class="card-title">PATTY FRIED</h5>
+            <p class="card-text">Fried patty for a crispy, juicy taste.</p>
+            <p class="card-text"><strong>Price: ₹120</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;" onclick="addFunction('Patty grilled', 100)">
+          <img src="pattygrilled.jpeg" class="card-img-top" alt="Patty grilled">
+          <div class="card-body">
+            <h5 class="card-title">PATTY GRILLED</h5>
+            <p class="card-text">Grilled patty for a smoky, savory flavor.</p>
+            <p class="card-text"><strong>Price: ₹100</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;" onclick="addFunction('Barbecue sauce', 5)">
+          <img src="barbeque_sauce.jpg" class="card-img-top" alt="Barbecue sauce">
+          <div class="card-body">
+            <h5 class="card-title">BARBECUE SAUCE</h5>
+            <p class="card-text">Smoky barbecue sauce for a rich flavor.</p>
+            <p class="card-text"><strong>Price: ₹5</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col">
+        <div class="card" style="width: 18rem;" onclick="addFunction('Cheese', 60)">
+          <img src="cheese.jpeg" class="card-img-top" alt="Cheese">
+          <div class="card-body">
+            <h5 class="card-title">CHEESE</h5>
+            <p class="card-text">Slice of cheese for a creamy addition.</p>
+            <p class="card-text"><strong>Price: ₹60</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;" onclick="addFunction('Tomato', 5)">
+          <img src="tomato.jpeg" class="card-img-top" alt="Tomato">
+          <div class="card-body">
+            <h5 class="card-title">TOMATO</h5>
+            <p class="card-text">Fresh tomato slices for a juicy crunch.</p>
+            <p class="card-text"><strong>Price: ₹5</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;" onclick="addFunction('Lettuce', 5)">
+          <img src="lettuce.jpg" class="card-img-top" alt="Lettuce">
+          <div class="card-body">
+            <h5 class="card-title">LETTUCE</h5>
+            <p class="card-text">Crisp lettuce for a refreshing crunch.</p>
+            <p class="card-text"><strong>Price: ₹5</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card" style="width: 18rem;" onclick="addFunction('Onion', 5)">
+          <img src="onion.jpeg" class="card-img-top" alt="Onion">
+          <div class="card-body">
+            <h5 class="card-title">ONION</h5>
+            <p class="card-text">Crunchy onions for extra flavor.</p>
+            <p class="card-text"><strong>Price: ₹5</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </center>
+</section>
+</body>
+
+</html>
