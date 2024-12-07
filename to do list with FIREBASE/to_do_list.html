@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>To-Do List App</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+
+    <style>
+
+         
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+}
+
+.jumbotron {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+#taskInput {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#addTaskBtn {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#taskList .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#taskList .list-group-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.complete-btn, .delete-btn {
+    margin-left: 5px;
+}
+
+.complete-btn {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.complete-btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+
+    </style>
+
+    <br><br>
+
+<center>
+
+    <a href="alarm.html"><button type="button" class="btn btn-danger">ALARM</button></a>
+
+</center>
+
+
+    <div class="container">
+        <div class="jumbotron text-center my-4">
+            <h1 class="display-4">To-Do List</h1>
+            <p class="lead">Organize your tasks efficiently using our website</p>
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input type="text" id="taskInput" class="form-control" placeholder="Add a new task">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="addTaskBtn">Add Task</button>
+                    </div>
+                </div>
+                <ul id="taskList" class="list-group">
+                      <!-- Tasks will be added here dynamically -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+
+<script type="module">
+    
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCs-klPO9gSaGKRImbKqg7VROffSSL5Nsg",
+  authDomain: "to-do-list-c1210.firebaseapp.com",
+  projectId: "to-do-list-c1210",
+  storageBucket: "to-do-list-c1210.firebasestorage.app",
+  messagingSenderId: "886939867063",
+  appId: "1:886939867063:web:648d86607bea2faafcfa32"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+
+
+
+    // DOM elements
+    const taskInput = document.getElementById('taskInput');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const taskList = document.getElementById('taskList');
+
+    // Add task to Firebase
+    addTaskBtn.addEventListener('click', () => {
+        const taskText = taskInput.value.trim();
+        if (taskText) {
+            const taskRef = ref(db, 'tasks');
+            push(taskRef, { text: taskText, completed: false });
+            taskInput.value = '';
+        }
+    });
+
+    // Listen for tasks from Firebase
+    const tasksRef = ref(db, 'tasks');
+    onValue(tasksRef, (snapshot) => {
+        taskList.innerHTML = '';
+        snapshot.forEach((childSnapshot) => {
+            const task = childSnapshot.val();
+            const taskId = childSnapshot.key;
+
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.innerHTML = `
+                <span>${task.text}</span>
+                <button class="btn btn-danger btn-sm delete-btn">Delete</button>
+            `;
+            taskList.appendChild(li);
+
+            // Delete task from Firebase
+            li.querySelector('.delete-btn').addEventListener('click', () => {
+                remove(ref(db, `tasks/${taskId}`));
+            });
+        });
+    });
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+  
+
+
+
+</script>
+
+
+
+
+</html>
